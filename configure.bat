@@ -1,0 +1,1 @@
+copy build\libs\gl18-1.0-SNAPSHOT.jar run\plugins\gl18-1.0-SNAPSHOT.jar
