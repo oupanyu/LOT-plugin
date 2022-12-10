@@ -22,18 +22,18 @@ public class MessageSender {
 
     public static void send(String datastr){
         /*
-        InetAddress address = null; // 1.å®šä¹‰æœåŠ¡å™¨çš„åœ°å€ã€ç«¯å£å·ã€æ•°æ® 
+        InetAddress address = null; // 1.¶¨Òå·şÎñÆ÷µÄµØÖ·¡¢¶Ë¿ÚºÅ¡¢Êı¾İ 
         try {
             //address = QQMessageThread.address;
 
-            //int port = QQMessageThread.port;//å®šä¹‰ç«¯å£ç±»å‹
+            //int port = QQMessageThread.port;//¶¨Òå¶Ë¿ÚÀàĞÍ
 
 
-            byte[] data = datastr.getBytes();//å°†æ¥æ”¶åˆ°çš„æ•°æ®å˜æˆå­—èŠ‚æ•°ç»„
-            DatagramPacket packet = new DatagramPacket(data, data.length, QQMessageThread.address, QQMessageThread.port);//2.åˆ›å»ºæ•°æ®æŠ¥ï¼ŒåŒ…å«å‘é€çš„æ•°æ®ä¿¡æ¯
-            DatagramSocket socket = new DatagramSocket(); // 3.åˆ›å»ºDatagramSocketå¯¹è±¡
-            socket.send(packet);// 4.å‘æœåŠ¡å™¨ç«¯å‘é€æ•°æ®æŠ¥
-            socket.close();//4.å…³é—­èµ„æº
+            byte[] data = datastr.getBytes();//½«½ÓÊÕµ½µÄÊı¾İ±ä³É×Ö½ÚÊı×é
+            DatagramPacket packet = new DatagramPacket(data, data.length, QQMessageThread.address, QQMessageThread.port);//2.´´½¨Êı¾İ±¨£¬°üº¬·¢ËÍµÄÊı¾İĞÅÏ¢
+            DatagramSocket socket = new DatagramSocket(); // 3.´´½¨DatagramSocket¶ÔÏó
+            socket.send(packet);// 4.Ïò·şÎñÆ÷¶Ë·¢ËÍÊı¾İ±¨
+            socket.close();//4.¹Ø±Õ×ÊÔ´
 
 
         } catch (IOException | NullPointerException e) {
@@ -43,12 +43,13 @@ public class MessageSender {
             try {
 
                 DataOutputStream out = new DataOutputStream(socket
-                        .getOutputStream());// å‘å®¢æˆ·ç«¯å‘é€ä¿¡æ¯çš„DataOutputStream
-                //Scanner scanner = new Scanner(System.in);//ä»é”®ç›˜æ¥å—æ•°æ®
-                    //String send = scanner.nextLine();//nextLineæ–¹å¼æ¥å—å­—ç¬¦ä¸²
-                //System.out.println("æœåŠ¡å™¨ï¼š" + datastr);//è¾“å‡ºæç¤ºä¿¡æ¯
+                        .getOutputStream());// Ïò¿Í»§¶Ë·¢ËÍĞÅÏ¢µÄDataOutputStream
+                //Scanner scanner = new Scanner(System.in);//´Ó¼üÅÌ½ÓÊÜÊı¾İ
+                    //String send = scanner.nextLine();//nextLine·½Ê½½ÓÊÜ×Ö·û´®
+                //System.out.println("·şÎñÆ÷£º" + datastr);//Êä³öÌáÊ¾ĞÅÏ¢
 
-                out.writeUTF("æœåŠ¡å™¨ï¼š" + datastr);//æŠŠæœåŠ¡å™¨ç«¯çš„è¾“å…¥å‘ç»™å®¢æˆ·ç«¯
+                //out.writeUTF("·şÎñÆ÷£º" + datastr);//°Ñ·şÎñÆ÷¶ËµÄÊäÈë·¢¸ø¿Í»§¶Ë
+                out.writeUTF(datastr);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

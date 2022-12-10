@@ -1,15 +1,12 @@
 package com.gl18;
 
-import com.gl18.listener.PlayerJoinListener;
+import com.gl18.listener.PlayerListener;
 import com.gl18.messagesender.QQMessageThread;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Arrays;
-import java.util.logging.Logger;
 
 import static org.bukkit.Bukkit.getServer;
 
@@ -35,7 +32,7 @@ public final class Gl18 extends JavaPlugin {
             e.printStackTrace();
         }
 
-        getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerListener(), this);
     }
 
     @Override

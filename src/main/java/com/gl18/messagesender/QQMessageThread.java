@@ -114,7 +114,8 @@ public class QQMessageThread extends Thread{
                         //e.printStackTrace();
                         try {
                             socket.close();
-                            throw new RuntimeException(e);
+                            break;
+                            //throw new RuntimeException(e);
                         }catch (IOException ioException){
                             throw new RuntimeException(ioException);
                         }
