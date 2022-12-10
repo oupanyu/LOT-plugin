@@ -112,7 +112,14 @@ public class QQMessageThread extends Thread{
                         //System.out.println(accpet);//输出来自客户端的信息
                     } catch (IOException e) {
                         //e.printStackTrace();
-                        throw new RuntimeException(e);
+                        try {
+                            socket.close();
+                            throw new RuntimeException(e);
+                        }catch (IOException ioException){
+                            throw new RuntimeException(ioException);
+                        }
+
+
                     }
 
             }
